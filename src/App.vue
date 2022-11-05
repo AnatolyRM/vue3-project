@@ -1,56 +1,19 @@
 <script setup>
-
-import HeaderBlock from "./components/HeaderBlock.vue";
-import RegisterLocation from "./views/RegisterLocation.vue";
-import {computed, defineAsyncComponent, ref} from "vue";
-import {useNotification} from "./composables/notification.js";
-import NotificationList from "./components/Helpers/NotificationList.vue";
-import SpinnerLoader from "./components/Helpers/SpinnerLoader.vue";
-
-const MyCityWeather = defineAsyncComponent(() => import('./views/MyCityWeather.vue'));
-
-const routes = {
-	'#/': MyCityWeather,
-	'#/my-weather': MyCityWeather,
-	'#/register-location': RegisterLocation,
-};
-
-let {destroy, notifications} = useNotification();
-
-let currentUrl = ref(window.location.hash);
-
-window.addEventListener('hashchange', () => {
-	currentUrl.value = window.location.hash;
-});
-
-const currentPage = computed(() => routes[currentUrl.value] || MyCityWeather);
-
+// This starter template is using Vue 3 <script setup> SFCs
+// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+import GSTC from "./components/GSTC.vue";
 </script>
 
 <template>
-	<div class="root-wrap">
-		<header-block :active-link-hash="currentUrl"></header-block>
-
-		<Suspense>
-			<component :is="currentPage"></component>
-
-			<template #fallback>
-				<spinner-loader></spinner-loader>
-			</template>
-		</Suspense>
-
-		<notification-list></notification-list>
-	</div>
+  <GSTC />
 </template>
 
 <style>
-
-.box {
-	box-shadow: 1px 2px 3px rgba(17, 23, 20, 0.1);
-	padding: 20px;
-	border-radius: 10px;
-	height: fit-content;
-	background-color: #fff;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-
 </style>
