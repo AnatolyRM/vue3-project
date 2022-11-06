@@ -20,18 +20,18 @@ export default {
         const page = ref(0)
         const perpage = ref(20)
         onMounted(async () => {
-            const res = await axios.get(`https://dummyjson.com/products?limit=20`)
+            const res = await axios.get(`https://dummyjson.com/products?limit=50`)
             store.state.products = res.data.products
         })
 
         async function nextPageShow(val) {
-            const res = await axios.get(`https://dummyjson.com/products?limit=20&skip=${val}`)
+            const res = await axios.get(`https://dummyjson.com/products?limit=50&skip=${val}`)
             store.state.products = res.data.products
             console.log(res.data)
         }
         const PreviousBtnClick = async (val) => {
             console.log(val)
-            const res = await axios.get(`https://dummyjson.com/products?limit=20&skip=${val}`)
+            const res = await axios.get(`https://dummyjson.com/products?limit=50&skip=${val}`)
             store.state.products = res.data.products
               console.log(res.data)
         }
