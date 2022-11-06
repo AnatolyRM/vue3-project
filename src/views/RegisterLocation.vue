@@ -4,7 +4,7 @@
 			<h3>Register your city</h3>
 			<div class="input-wrap">
 				<span>City name</span>
-				<input type="text" class="input" v-model="locationData.city_name" placeholder="Template: Kazan">
+				<input type="text" class="input" v-model="locationData.city_name" placeholder="Template: Gomel">
 			</div>
 			<div class="input-wrap">
 				<span>Country Code</span>

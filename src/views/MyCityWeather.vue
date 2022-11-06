@@ -25,8 +25,8 @@ import WeatherList from "../components/Weather/WeatherList.vue";
 import EmptyMessage from "../components/Helpers/EmptyMessage.vue";
 
 const currentCountry = reactive({
-	city: getCityName() || 'Kazan',
-	code: '643',
+	city: getCityName() || 'Golem',
+	code: '',
 	lat: getLat(),
 	lon: getLon(),
 });
